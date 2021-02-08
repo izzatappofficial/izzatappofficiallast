@@ -1,0 +1,117 @@
+//
+// Slider styles //
+//
+.swiper-button-prev, 
+.swiper-button-next {
+	width: auto;
+	height: auto;
+	color: $color-white;
+	&:after {
+		font-size: 20px;
+	}
+}
+.swiper-container-horizontal>.swiper-pagination-bullets {
+	right: auto;
+	bottom: 20px;
+	left: 50%;
+	@include transform(translateX(-50%));
+	background: $color-dark-06;
+	height: 28px;
+	width: auto;
+	border-radius: 20px;
+	padding: 5px 6px;
+	@include breakpoint-less(md) {
+		bottom: 16px;
+	}
+	.swiper-pagination-bullet {
+		position: relative;
+		opacity: 1;
+		background: transparent;
+		width: 18px;
+		height: 18px;
+		border: 1px solid transparent;
+		margin: 0 4px 0 0;
+		@include transition(linear 0.1s);
+		&:last-child {
+			margin: 0;
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			@include transform(translate(-50%,-50%));
+			background: $color-white;
+			width: 4px;
+			height: 4px;
+			border-radius: 100%;
+			@include transition(linear 0.1s);
+		}
+		&.swiper-pagination-bullet-active {
+			border-color: $color-white;
+		}
+	}
+}
+
+.fullscreen-progressbar-slider, 
+.fullscreen-dots-slider {
+	height: 100%;
+}
+
+.fullscreen-progressbar-slider, 
+.fullscreen-dots-slider, 
+.hero-dots-slider {
+	.swiper-button-prev {
+		left: 50px;
+		@include breakpoint-less(md) { left: 30px; }
+	}
+	.swiper-button-next {
+		right: 50px;
+		@include breakpoint-less(md) { right: 30px; }
+	}
+}
+
+.fullscreen-progressbar-slider {
+	.swiper-pagination-progressbar {
+		top: auto;
+		right: 50px;
+		bottom: 50px;
+		left: 50px;
+		background: $color-white-02;
+		width: auto;
+		height: 2px;
+		@include breakpoint-less(md) {
+			right: 30px;
+			bottom: 30px;
+			left: 30px;
+		}
+		.swiper-pagination-progressbar-fill {
+			background: $color-white;
+		}
+	}
+}
+
+.testimonial-slider {
+	.swiper-pagination {
+		left: 0;
+		right: 0;
+		bottom: 0;
+		@include transform(translateX(0));
+		background: transparent;
+		width: auto;
+		height: 22px;
+		border-radius: 0;
+		padding: 0;
+		text-align: right;
+		.swiper-pagination-bullet {
+			width: 22px;
+			height: 22px;
+			&:before {
+				background: $color-dark;
+			}
+			&.swiper-pagination-bullet-active {
+				border-color: $color-dark;
+			}
+		}
+	}
+}

@@ -1,0 +1,77 @@
+//
+// Box styles //
+//
+.box-shadow {
+	@include box-shadow(0 10px 40px -4px rgba(24,27,30,0.14));
+	@include transition(ease-out 0.16s);
+	&:hover {
+		@include box-shadow(0 10px 46px -2px rgba(24,27,30,0.2));
+	}
+}
+.hover-shadow {
+	@include transition(ease-out 0.16s);
+	&:hover {
+		@include box-shadow(0 0 36px 0 rgba(24,27,30,0.14));
+	}
+}
+.hover-float {
+	@include transition(ease-out 0.16s);
+	&:hover {
+		@include transform(translateY(-5px));
+	}
+}
+.hover-scale {
+	@include transition(ease-out 0.16s);
+	&:hover {
+		@include transform(scale(1.02));
+	}
+}
+.hover-shrink {
+	@include transition(ease-out 0.16s);
+	&:hover {
+		@include transform(scale(0.98));
+	}
+}
+
+.border-radius-025 { border-radius: 0.25em; }
+.border-radius-05 { border-radius: 0.5em; }
+.border-radius-10 { border-radius: 1em; }
+.border-radius-15 { border-radius: 1.5em; }
+.border-radius-20 { border-radius: 2em; }
+.border-radius-25 { border-radius: 2.5em; }
+.border-radius-30 { border-radius: 3em; }
+
+
+.img-link {
+	display: block;
+	.img-link-box {
+		position: relative;
+		@include transform(translate3d(0,0,0));
+		overflow: hidden;
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			opacity: 0;
+			background: $color-dark-01;
+			@include transition(ease-out 0.16s);
+		}
+		img {
+			@include transform(scale(1));
+			@include transition(transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1));
+		}
+	}
+	&:hover {
+		.img-link-box {
+			&:after {
+				opacity: 1;
+			}
+			img {
+				@include transform(scale(1.05));
+			}
+		}
+	}
+}

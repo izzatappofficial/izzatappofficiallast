@@ -1,0 +1,636 @@
+//
+// Button styles //
+//
+a {
+	color: $color-primary;
+	@include transition(linear 0.1s);
+	&:hover {
+		color: $color-dark;
+		text-decoration: none;
+	}
+}
+button {
+	background: transparent;
+	box-shadow: none;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+}
+a, button {
+	&:focus, &:active {
+		box-shadow: none;
+		outline: 0;
+	}
+}
+
+.button {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	background: $color-dark-01;
+	border: 0;
+	padding: 7px 16px;
+	color: $color-dark;
+	font: 500 13px $font-family-secondary;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	@include transition(ease-out 0.16s);
+}
+
+//
+// Button Sizes //
+//
+.button-xs { padding: 7px 16px; }
+.button-sm { padding: 10px 22px; }
+.button-md { padding: 14px 34px; }
+.button-lg { padding: 16px 42px; }
+.button-xl { padding: 18px 50px; }
+.button-fullwidth { width: 100%; text-align: center; }
+
+//
+// Button Style - Regular //
+//
+.button-gray, a.button-gray {
+	&:hover, &:focus {
+		opacity: 0.8;
+	}
+}
+.button-dark, a.button-dark {
+	background: $color-dark;
+	color: $color-white;
+	&:hover, &:focus {
+		opacity: 0.8;
+	}
+}
+.button-black, a.button-black {
+	background: $color-black;
+	color: $color-white;
+	&:hover, &:focus {
+		opacity: 0.8;
+	}
+}
+.button-white, a.button-white {
+	background: $color-white;
+	color: $color-dark;
+	&:hover, &:focus {
+		opacity: 0.8;
+	}
+}
+.button-white-2, a.button-white-2 {
+	background: $color-white-015;
+	color: $color-white-09;
+	&:hover, &:focus {
+		background: $color-white-02;
+		color: $color-white;
+	}
+}
+.button-outline-gray, a.button-outline-gray {
+	background: transparent;
+	border: 1px solid $color-dark-02;
+	color: $color-dark-09;
+	&:hover, &:focus {
+		border-color: $color-dark;
+		color: $color-dark;
+	}
+}
+.button-outline-dark, a.button-outline-dark {
+	background: transparent;
+	border: 1px solid $color-dark-08;
+	color: $color-dark-09;
+	&:hover, &:focus {
+		border-color: $color-dark-02;
+		color: $color-dark;
+	}
+}
+.button-outline-white, a.button-outline-white {
+	background: transparent;
+	border: 1px solid $color-white-03;
+	color: $color-white-09;
+	&:hover, &:focus {
+		border-color: $color-white;
+		color: $color-white;
+	}
+}
+.button-outline-white-2, a.button-outline-white-2 {
+	background: transparent;
+	border: 1px solid $color-white;
+	color: $color-white-09;
+	&:hover, &:focus {
+		border-color: $color-white-03;
+		color: $color-white;
+	}
+}
+
+
+//
+// Text Buttons //
+//
+.button-text-1,  
+.button-text-2 {
+	position: relative;
+	display: inline-block;
+	color: $color-dark;
+	font-family: $font-family-secondary;
+}
+.button-text-1 {
+	&:before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		background: $color-dark-01;
+		width: 100%;
+		height: 1px;
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: $color-dark;
+		height: 1px;
+		@include animation(button-line-out 0.24s cubic-bezier(0.165, 0.84, 0.44, 1) both);
+	}
+	&:hover {
+		&:after {
+			width: 100%;
+			@include animation(button-line-in 0.24s cubic-bezier(0.165, 0.84, 0.44, 1) both);
+		}
+	}
+}
+.button-text-2 {
+	padding-left: 30px;
+	@include transition(all 0.24s cubic-bezier(0.165, 0.84, 0.44, 1));
+	&:before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 0;
+		@include transform(translateY(-50%));
+		background: $color-dark-03;
+		width: 20px;
+		height: 1px;
+		@include transition(all 0.24s cubic-bezier(0.165, 0.84, 0.44, 1));
+	}
+	&:hover {
+		padding-left: 42px;
+		&:before {
+			background: $color-dark;
+			width: 32px;
+		}
+	}
+}
+@-webkit-keyframes button-line-out {
+	0% {
+		@include transform(scaleX(1));
+		@include transform-origin(100% 50%);
+	}
+	100% {
+		@include transform(scaleX(0));
+		@include transform-origin(100% 50%);
+	}
+}
+@keyframes button-line-out {
+	0% {
+		@include transform(scaleX(1));
+		@include transform-origin(100% 50%);
+	}
+	100% {
+		@include transform(scaleX(0));
+		@include transform-origin(100% 50%);
+	}
+}
+@-webkit-keyframes button-line-in {
+	0% {
+		@include transform(scaleX(0));
+		@include transform-origin(0 50%);
+	}
+	100% {
+		@include transform(scale(1));
+		@include transform-origin(0 50%);
+	}
+}
+@keyframes button-line-in {
+	0% {
+		@include transform(scaleX(0));
+		@include transform-origin(0 50%);
+	}
+	100% {
+		@include transform(scale(1));
+		@include transform-origin(0 50%);
+	}
+}
+
+*[class^='bg-dark'], *[class*=' bg-dark'], *[class^='bg-black'], *[class*=' bg-black'] {
+	.button-text-1,  
+	.button-text-2 {
+		color: $color-white-08;
+		&:hover {
+			color: $color-white;
+		}
+	}
+	.button-text-1 {
+		&:before { background: $color-white-01; }
+		&:after { background: $color-white; }
+	}
+	.button-text-2 {
+		&:before { background: $color-white-03; }
+		&:hover {
+			&:before { background: $color-white; }
+		}
+	}
+}
+
+
+//
+// Circle Button //
+//
+.button-circle, a.button-circle {
+	background: $color-dark-01;
+	display: inline-block;
+	border-radius: 50%;
+	color: $color-dark;
+	text-align: center;
+	@include transition(ease-out 0.16s);
+}
+
+.button-circle-xs {
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	i { line-height: 32px; }
+}
+.button-circle-sm {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	i { line-height: 40px; }
+}
+.button-circle-md {
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	i { line-height: 50px; }
+}
+.button-circle-lg {
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	i { line-height: 60px; }
+}
+.button-circle-xl {
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+	i { line-height: 70px; }
+}
+.button-circle-2xl {
+	width: 80px;
+	height: 80px;
+	line-height: 80px;
+	i { line-height: 80px; }
+}
+
+
+//
+// Circle Button //
+//
+.button-circle-gray, a.button-circle-gray {
+	&:hover, &:focus {
+		opacity: 0.8;
+	}
+}
+.button-circle-dark, a.button-circle-dark {
+	background: $color-dark;
+	color: $color-white;
+	&:hover, &:focus {
+		opacity: 0.8;
+	}
+}
+.button-circle-black, a.button-circle-black {
+	background: $color-black;
+	color: $color-white;
+	&:hover, &:focus {
+		opacity: 0.8;
+	}
+}
+.button-circle-white, a.button-circle-white {
+	background: $color-white;
+	color: $color-dark;
+	&:hover, &:focus {
+		opacity: 0.8;
+	}
+}
+.button-circle-white-2, a.button-circle-white-2 {
+	background: $color-white-015;
+	color: $color-white-09;
+	&:hover, &:focus {
+		background: $color-white-02;
+		color: $color-white;
+	}
+}
+.button-circle-outline-gray, a.button-circle-outline-gray {
+	background: transparent;
+	border: 1px solid $color-dark-02;
+	color: $color-dark-09;
+	&:hover, &:focus {
+		border-color: $color-dark;
+		color: $color-dark;
+	}
+}
+.button-circle-outline-dark, a.button-circle-outline-dark {
+	background: transparent;
+	border: 1px solid $color-dark-08;
+	color: $color-dark-09;
+	&:hover, &:focus {
+		border-color: $color-dark-02;
+		color: $color-dark;
+	}
+}
+.button-circle-outline-white, a.button-circle-outline-white {
+	background: transparent;
+	border: 1px solid $color-white-03;
+	color: $color-white-09;
+	&:hover, &:focus {
+		border-color: $color-white;
+		color: $color-white;
+	}
+}
+.button-circle-outline-white-2, a.button-circle-outline-white-2 {
+	background: transparent;
+	border: 1px solid $color-white;
+	color: $color-white-09;
+	&:hover, &:focus {
+		border-color: $color-white-02;
+		color: $color-white;
+	}
+}
+
+
+//
+// Circle Button - Hover Slide //
+//
+.button-circle-hover-slide {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	i {
+		position: absolute;
+		left: 50%;
+		&:first-child {
+			top: 50%;
+			@include transform(translateX(-50%) translateY(-50%));
+		}
+		&:last-child {
+			top: 100%;
+			@include transform(translateX(-50%));
+		}
+	}
+	&:hover {
+		i {
+			&:first-child {
+				@include animation(button-slide-out 0.24s ease-out both);
+			}
+			&:last-child {
+				@include animation(button-slide-in 0.24s ease-out both);
+			}
+		}
+	}
+}
+@-webkit-keyframes button-slide-out {
+	0% {
+		top: 50%;
+		@include transform(translateX(-50%) translateY(-50%));
+		opacity: 1;
+	}
+	100% {
+		top: -100%;
+		@include transform(translateX(-50%) translateY(0));
+		opacity: 0;
+	}
+}
+@keyframes button-slide-out {
+	0% {
+		top: 50%;
+		@include transform(translateX(-50%) translateY(-50%));
+		opacity: 1;
+	}
+	100% {
+		top: -100%;
+		@include transform(translateX(-50%) translateY(0));
+		opacity: 0;
+	}
+}
+@-webkit-keyframes button-slide-in {
+	0% {
+		top: 100%;
+		@include transform(translateX(-50%));
+		opacity: 0;
+	}
+	100% {
+		top: 50%;
+		@include transform(translateX(-50%) translateY(-50%));
+		opacity: 1;
+	}
+}
+@keyframes button-slide-in {
+	0% {
+		top: 100%;
+		@include transform(translateX(-50%));
+		opacity: 0;
+	}
+	100% {
+		top: 50%;
+		@include transform(translateX(-50%) translateY(-50%));
+		opacity: 1;
+	}
+}
+
+//
+// Circle Button - Animations //
+//
+.button-circle-animation-drop, a.button-circle-animation-drop {
+	position: relative;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		@include transform(translate(-50%, -50%));
+		opacity: 1;
+		width: 100%;
+		height: 100%;
+		border: 2px solid $color-dark-02;
+		border-radius: 50%;
+		@include animation(button-drop 2s ease-out infinite);
+	}
+	&:hover {
+		@include transform(scale(0.92));
+	}
+	&.button-circle-white, &.button-circle-white-2, &.button-circle-outline-white, &.button-circle-outline-white-2 {
+		&:before {
+			border-color: $color-white-04;
+		}
+	}
+}
+@-webkit-keyframes button-drop {
+	0% {
+		opacity: 1;
+		width: 100%;
+		height: 100%;
+	}
+	60% {
+		opacity: 0;
+		width: 160%;
+		height: 160%;
+	}
+	100% {
+		opacity: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+@keyframes button-drop {
+	0% {
+		opacity: 1;
+		width: 100%;
+		height: 100%;
+	}
+	60% {
+		opacity: 0;
+		width: 160%;
+		height: 160%;
+	}
+	100% {
+		opacity: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.button-circle-animation-drop-2, a.button-circle-animation-drop-2 {
+	position: relative;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		@include transform(translate(-50%, -50%));
+		z-index: -1;
+		opacity: 1;
+		background: $color-dark-01;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		@include animation(button-drop 2s ease-out infinite);
+	}
+	&:hover {
+		@include transform(scale(0.92));
+	}
+	&.button-circle-white, &.button-circle-white-2, &.button-circle-outline-white, &.button-circle-outline-white-2 {
+		&:before {
+			background: $color-white-02;
+		}
+	}
+}
+@-webkit-keyframes button-drop-2 {
+	0% {
+		opacity: 1;
+		width: 100%;
+		height: 100%;
+	}
+	60% {
+		opacity: 0;
+		width: 150%;
+		height: 150%;
+	}
+	100% {
+		opacity: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+@keyframes button-drop-2 {
+	0% {
+		opacity: 1;
+		width: 100%;
+		height: 100%;
+	}
+	60% {
+		opacity: 0;
+		width: 150%;
+		height: 150%;
+	}
+	100% {
+		opacity: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+//
+// Button Hovers //
+//
+.button-shadow, a.button-shadow {
+	@include box-shadow(0 2px 20px -6px rgba(24,27,30,0.14));
+	&:hover, &:focus {
+		@include box-shadow(0 6px 30px -4px rgba(24,27,30,0.2));
+	}
+}
+.button-hover-float, a.button-hover-float {
+	&:hover {
+		@include transform(translateY(-4px));
+	}
+}
+.button-hover-scale, a.button-hover-scale {
+	&:hover, &:focus {
+		@include transform(scale(1.03));
+	}
+	&.button-circle {
+		&:hover, &:focus {
+			@include transform(scale(1.04));
+		}
+	}
+}
+.button-hover-shrink, a.button-hover-shrink {
+	&:hover, &:focus {
+		@include transform(scale(0.97));
+	}
+	&.button-circle {
+		&:hover, &:focus {
+			@include transform(scale(0.96));
+		}
+	}
+}
+
+//
+// Button Border //
+//
+.button-border-2, a.button-border-2 {
+	border-width: 2px;
+}
+
+//
+// Button - Radius //
+//
+.button-radius { border-radius: 0.25em; }
+.button-rounded { border-radius: 50px; }
+
+//
+// Button Font styles //
+//
+.button-font-2 {
+	font-weight: 400;
+	font-size: 15px;
+	text-transform: none;
+	letter-spacing: 0;
+}
+
+.font-small {
+	.button, &.button { font-size: 12px; }
+	.button-font-2, &.button-font-2 { font-size: 14px; }
+}
+.font-family-primary {
+	.button, &.button { font-family: $font-family-primary; }
+}

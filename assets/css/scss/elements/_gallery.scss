@@ -1,0 +1,114 @@
+//
+// Gallery //
+//
+.gallery {
+	.gallery-item {
+		position: relative;
+		overflow: hidden;
+		a {
+			display: block;
+			&:after {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				opacity: 0;
+				background: $color-dark-01;
+				@include transition(ease-out 0.16s);
+			}
+			img {
+				@include transition(transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1));
+			}
+			&:hover {
+				&:after {
+					opacity: 1;
+				}
+				img {
+					@include transform(scale(1.05));
+				}
+			}
+		}
+	}
+	&[class*=' border-radius-'], &[class^='border-radius-'] {
+		.gallery-item {
+			@include transform(translate3d(0,0,0));
+			oveflow: hidden;
+		}
+	}
+	&.border-radius-025 {
+		.gallery-item { border-radius: 0.25em; }
+	}
+	&.border-radius-05 {
+		.gallery-item { border-radius: 0.5em; }
+	}
+	&.border-radius-10 {
+		.gallery-item { border-radius: 1.0em; }
+	}
+	&.border-radius-15 {
+		.gallery-item { border-radius: 1.5em; }
+	}
+	&.border-radius-20 {
+		.gallery-item { border-radius: 2.0em; }
+	}
+	&.border-radius-25 {
+		.gallery-item { border-radius: 2.5em; }
+	}
+	&.border-radius-30 {
+		.gallery-item { border-radius: 3.0em; }
+	}
+}
+.justified-gallery {
+	a {
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			opacity: 0;
+			background: $color-dark-01;
+			@include transition(ease-out 0.16s);
+		}
+		img {
+			@include transition(transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1));
+		}
+		&:hover {
+			&:after {
+				opacity: 1;
+			}
+			img {
+				@include transform(scale(1.05));
+			}
+		}
+	}
+	&[class*=' border-radius-'], &[class^='border-radius-'] {
+		a {
+			@include transform(translate3d(0,0,0));
+			oveflow: hidden;
+		}
+	}
+	&.border-radius-025 {
+		a { border-radius: 0.25em; }
+	}
+	&.border-radius-05 {
+		a { border-radius: 0.5em; }
+	}
+	&.border-radius-10 {
+		a { border-radius: 1.0em; }
+	}
+	&.border-radius-15 {
+		a { border-radius: 1.5em; }
+	}
+	&.border-radius-20 {
+		a { border-radius: 2.0em; }
+	}
+	&.border-radius-25 {
+		a { border-radius: 2.5em; }
+	}
+	&.border-radius-30 {
+		a { border-radius: 3.0em; }
+	}
+}

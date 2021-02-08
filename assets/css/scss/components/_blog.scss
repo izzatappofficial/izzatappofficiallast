@@ -1,0 +1,49 @@
+//
+// Blog styles //
+//
+.comment-box {
+	position: relative;
+	margin-bottom: 50px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	.comment-avatar {
+		width: 80px;
+		height: 80px;
+		img {
+			width: 100%;
+			height: 100%;
+			border: 3px solid $color-dark-01;
+			border-radius: 50%;
+		}
+	}
+	.comment-reply {
+		position: absolute;
+		top: 0;
+		right: 0;
+		a {
+			display: inline-block;
+			font-family: $font-family-secondary;
+			font-weight: $font-weight-medium;
+			font-size: 13px;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			i {
+				margin-right: 8px;
+			}
+		}
+	}
+	@include breakpoint-above(lg) {
+		padding-left: 104px;
+		.comment-avatar {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+	@include breakpoint-less(md) {
+		.comment-avatar {
+			margin-bottom: 16px;
+		}
+	}
+}

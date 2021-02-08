@@ -1,0 +1,172 @@
+//
+// Feature box //
+//
+.f-box {
+	@include display-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	position: relative;
+	min-height: 50px;
+	padding-left: 74px;
+	@include breakpoint-less(md) {
+		padding-left: 66px;
+	}
+	.f-box-icon {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0.9;
+		background: $color-dark-01;
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		text-align: center;
+		@include transition(ease-out 0.16s);
+		* {
+			margin: 0;
+			line-height: 50px;
+			vertical-align: middle;
+			color: $color-dark-09;
+			@include transition(ease-out 0.16s);
+		}
+		a {
+			display: block;
+		}
+		//
+		// Positions //
+		//
+		&.middle {
+			top: 50%;
+			@include transform(translateY(-50%));
+		}
+	}
+	h1,h2,h3,h4,h5,h6 {
+		width: 100%;
+	}
+	&:hover {
+		.f-box-icon {
+			opacity: 1;
+		}
+	}
+	//
+	// Sizes //
+	//
+	&.f-box-xl {
+		min-height: 70px;
+		padding-left: 94px;
+		@include breakpoint-less(md) {
+			padding-left: 86px;
+		}
+		.f-box-icon {
+			width: 70px;
+			height: 70px;
+			* {
+				line-height: 70px;
+			}
+		}
+	}
+	&.f-box-lg {
+		min-height: 60px;
+		padding-left: 84px;
+		@include breakpoint-less(md) {
+			padding-left: 80px;
+		}
+		.f-box-icon {
+			width: 60px;
+			height: 60px;
+			* {
+				line-height: 60px;
+			}
+		}
+	}
+	&.f-box-sm {
+		min-height: 40px;
+		padding-left: 64px;
+		@include breakpoint-less(md) {
+			padding-left: 56px;
+		}
+		.f-box-icon {
+			width: 40px;
+			height: 40px;
+			* {
+				line-height: 40px;
+			}
+		}
+	}
+	&.f-box-xs {
+		min-height: 32px;
+		padding-left: 54px;
+		@include breakpoint-less(md) {
+			padding-left: 48px;
+		}
+		.f-box-icon {
+			width: 32px;
+			height: 32px;
+			* {
+				line-height: 32px;
+			}
+		}
+	}
+	//
+	// Colors //
+	//
+	&.dark {
+		.f-box-icon {
+			background: $color-dark;
+			* {
+				color: $color-white-09;
+			}
+		}
+	}
+	&.white {
+		.f-box-icon {
+			background: $color-white;
+		}
+	}
+	&.outline-gray {
+		opacity: 1;
+		.f-box-icon {
+			background: transparent;
+			border: 1px solid $color-dark-01;
+		}
+		&:hover {
+			.f-box-icon {
+				background: $color-dark-01;
+				border-color: transparent;
+			}
+		}
+	}
+	&.outline-dark {
+		opacity: 1;
+		.f-box-icon {
+			background: transparent;
+			border: 1px solid $color-dark-08;
+		}
+		&:hover {
+			.f-box-icon {
+				background: $color-dark;
+				* {
+					color: $color-white;
+				}
+			}
+		}
+	}
+	&.outline-white {
+		opacity: 1;
+		.f-box-icon {
+			background: transparent;
+			border: 1px solid $color-white-09;
+			* {
+				color: $color-white-09;
+			}
+		}
+		&:hover {
+			.f-box-icon {
+				background: $color-white;
+				* {
+					color: $color-dark;
+				}
+			}
+		}
+	}
+}

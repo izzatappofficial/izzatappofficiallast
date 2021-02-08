@@ -1,0 +1,36 @@
+//
+// Testimonial //
+//
+.testimonial-box {
+	.avatar {
+		position: relative;
+		min-height: 70px;
+		margin-top: 24px;
+		vertical-align: middle;
+		@include breakpoint-less(md) {
+			margin-top: 20px;
+		}
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 70px;
+			height: 70px;
+			border-radius: 50%;
+			border: 3px solid $color-dark-01;
+		}
+		.avatar-title {
+			position: absolute;
+			top: 50%;
+			left: 90px;
+			@include transform(translateY(-50%));
+			@include breakpoint-less(md) {
+				left: 86px;
+			}
+		}
+		h6 {
+			margin: 0;
+			line-height: 1.4;
+		}
+	}
+}

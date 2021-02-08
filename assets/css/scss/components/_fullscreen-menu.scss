@@ -1,0 +1,259 @@
+//
+// Fullscreen Menu //
+//
+.fm-toggle {
+	position: relative;
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	margin-left: auto;
+	span {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		@include transform(translateY(-50%));
+		background: $color-dark;
+		width: 100%;
+		height: 2px;
+		border-radius: 2px;
+		@include transition(linear 0.1s);
+		&:before, &:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			background: $color-dark;
+			width: 100%;
+			height: 2px;
+			border-radius: 2px;
+			@include transition(linear 0.1s);
+		}
+		&:before { top: -7px; }
+		&:after { bottom: -7px; }
+	}
+	@include breakpoint-above(lg) {
+		span {
+			&:before { @include transform(scaleX(0.8)); @include transform-origin(100% 50%); }
+			&:after { @include transform(scaleX(0.6)); @include transform-origin(100% 50%); }
+		}
+		&:hover {
+			span {
+				&:before { @include transform(scaleX(1)) }
+				&:after { @include transform(scaleX(1)) }
+			}
+		}
+	}
+}
+.header {
+	&.dark, &.black, &.absolute-light {
+		&:not(.absolute-dark) {
+			.fm-toggle {
+				span {
+					background: $color-white;
+					&:before, &:after {
+						background: $color-white;
+					}
+				}
+			}
+		}
+	}
+}
+
+.fm-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 992;
+	visibility: hidden;
+	opacity: 0;
+	background: $color-black;
+	width: 100%;
+	height: 100%;
+	color: $color-white-06;
+	@include transition(ease-out 0.16s);
+	a {
+		&:not([class*=' button'], [class^='button']) {
+			color: $color-white-08;
+			&:hover, &:focus { color: $color-white; }
+		}
+	}
+	&.fm-show {
+		visibility: visible;
+		opacity: 1;
+	}
+	.container, .container-fluid {
+		position: relative;
+		height: 100%;
+	}
+	.fm-close {
+		position: absolute;
+		top: 50px;
+		left: 50%;
+		@include transform(translateX(-50%) scale(0.9));
+		opacity: 0;
+		width: 60px;
+		height: 60px;
+		@include transition(ease-out 0.16s);
+		@include breakpoint-less(md) {
+			top: 30px;
+		}
+		@include breakpoint-less(sm) {
+			top: 20px;
+		}
+		span {
+			position: relative;
+			display: inline-block;
+			opacity: 0.8;
+			background: $color-white-01;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			@include transition(ease-out 0.16s);
+			&:before, &:after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				background: $color-white;
+				width: 14px;
+				height: 2px;
+				border-radius: 2px;
+				@include transition(ease-out 0.16s);
+			}
+			&:before { @include transform(translate(-50%, -50%) rotate(45deg)) }
+			&:after { @include transform(translate(-50%, -50%) rotate(-45deg)) }
+		}
+		@include breakpoint-above(lg) {
+			&:hover {
+				span {
+					opacity: 0.9;
+					&:before { @include transform(translate(-50%, -50%) rotate(180deg)) }
+					&:after { @include transform(translate(-50%, -50%) rotate(180deg)) }
+				}
+			}
+		}
+	}
+	.fm-middle {
+		position: absolute;
+		top: 50%;
+		right: 30px;
+		left: 30px;
+		@include transform(translateY(-50%));
+	}
+	.fm-bottom {
+		position: absolute;
+		right: 30px;
+		bottom: 50px;
+		left: 30px;
+		@include transform(translateY(8px));
+		opacity: 0;
+		@include transition(ease-out 0.16s);
+		@include breakpoint-less(md) {
+			bottom: 30px;
+		}
+	}
+	.fm {
+		list-style-type: none;
+		margin: 0 -20px;
+		padding: 0;
+		li {
+			@include transform(translateY(8px));
+			opacity: 0;
+			display: inline-block;
+			margin: 8px 20px;
+			font-family: $font-family-secondary;
+			font-weight: $font-weight-bold;
+			font-size: 3.33em; // 50px
+			line-height: 1.2; // 60px
+			@include transition(ease-out 0.16s);
+			@include breakpoint-less(md) {
+				font-size: 3.14em; // 44px
+			}
+			@include breakpoint-less(sm) {
+				font-size: 2.85em; // 40px
+			}
+			a {
+				display: inline-block;
+				color: $color-white;
+				-webkit-text-fill-color: transparent;
+				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-color: $color-white;
+				&:hover, &.active {
+					-webkit-text-fill-color: $color-white;
+					color: $color-white;
+				}
+			}
+		}
+		&.font-weight-thin {
+			li { font-weight: $font-weight-thin; }
+		}
+		&.font-weight-extra-light {
+			li { font-weight: $font-weight-extra-light; }
+		}
+		&.font-weight-light {
+			li { font-weight: $font-weight-light; }
+		}
+		&.font-weight-regular {
+			li { font-weight: $font-weight-regular; }
+		}
+		&.font-weight-bold {
+			li { font-weight: $font-weight-bold; }
+		}
+		&.font-weight-extra-bold {
+			li { font-weight: $font-weight-extra-bold; }
+		}
+		&.font-weight-black {
+			li { font-weight: $font-weight-black; }
+		}
+	}
+	&.fm-show {
+		.fm-close {
+			@include transform(translateX(-50%) scale(1));
+			opacity: 1;
+			@include transition-delay(0.2s);
+		}
+		.fm {
+			li {
+				@include transform(translateY(0));
+				opacity: 1;
+				@include transition-delay(0.2s);
+				&:nth-child(2) { @include transition-delay(0.3s); }
+				&:nth-child(3) { @include transition-delay(0.4s); }
+				&:nth-child(4) { @include transition-delay(0.5s); }
+				&:nth-child(5) { @include transition-delay(0.6s); }
+				&:nth-child(6) { @include transition-delay(0.7s); }
+				&:nth-child(7) { @include transition-delay(0.8s); }
+				&:nth-child(8) { @include transition-delay(0.9s); }
+				&:nth-child(9) { @include transition-delay(1s); }
+				&:nth-child(10) { @include transition-delay(1.1s); }
+			}
+		}
+		.fm-bottom {
+			@include transform(translateY(0));
+			opacity: 1;
+			@include transition-delay(0.2s);
+		}
+	}
+}
+
+*[class^='bg-white'], *[class*=' bg-white'], .bg-light-gray, .bg-gray {
+	&.fm-wrapper {
+		.fm-close {
+			span {
+				background: $color-dark-01;
+				&:before, &:after { background: $color-dark; }
+			}
+		}
+		.fm {
+			li {
+				a {
+					color: $color-dark;
+					-webkit-text-stroke-color: $color-dark;
+					&:hover {
+						-webkit-text-fill-color: $color-dark;
+						color: $color-dark;
+					}
+				}
+			}
+		}
+	}
+}
