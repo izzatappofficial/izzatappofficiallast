@@ -3875,7 +3875,7 @@ a[class^='text-link-']:hover, a[class^='text-link-']:focus, a[class*=' text-link
   left: 0;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
-  background: #131415;
+  background:  #ffffff;
   width: 100%;
   height: 2px;
   border-radius: 2px;
@@ -3887,7 +3887,7 @@ a[class^='text-link-']:hover, a[class^='text-link-']:focus, a[class*=' text-link
   content: '';
   position: absolute;
   left: 0;
-  background: #131415;
+  background:  #ffffff;
   width: 100%;
   height: 2px;
   border-radius: 2px;
